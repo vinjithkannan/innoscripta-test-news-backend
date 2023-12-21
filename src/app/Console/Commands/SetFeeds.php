@@ -24,12 +24,9 @@ class SetFeeds extends Command
     /**
      * Execute the console command.
      */
-    public function handle()
+    public function handle(NewsFeederService $newsFeederService)
     {
         $feeder = $this->argument('feeder');
-        $feederService = sprintf('%sApiService', $feeder);
-        $newsFeederService = new NewsFeederService(new $feederService);
-
-        $newsFeederService->feedNewses();
+        $newsFeederService->feedNewses($feeder);
     }
 }

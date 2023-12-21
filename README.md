@@ -29,3 +29,11 @@
   * Once containers where up, dev env will able to browse with url
   #### (http://localhost)
 
+  * ```shell
+    docker exec -it innoscriptaapp sh
+    /var/www/# composer install
+    /var/www/# php artisan migrate
+  ```  
+
+### API Documentation
+* Api Collection added from post man exported file Innoscripta News.postman_collection.json

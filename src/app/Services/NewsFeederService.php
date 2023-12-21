@@ -19,15 +19,19 @@ class NewsFeederService
         'sources' => 'source_id'
     ];
     public function __construct(
-        private readonly NewsServiceInterface $newsService,
+        private readonly NewsApiService $newsApiService,
+        private readonly GuardianApiService $guardianApiService,
+        private readonly NewyorkTimesApiService $newyorkTimesApiService
+        // private readonly NewsServiceInterface $newsService,
     ){
     }
 
-    public function feedNewses(): bool|array
+    public function feedNewses(string $feeder): bool|array
     {
         try {
-            $newsFromNewsApi = $this->newsService->fetchData('*');
-            $newsInputParentData = $this->newsService->prepareParentDataForStoring($newsFromNewsApi);
+            $feederClass = sprintf('%sApiService', $feeder);
+            $newsFromNewsApi = $this->{$feederClass}->fetchData('*');
+            $newsInputParentData = $this->{$feederClass}->prepareParentDataForStoring($newsFromNewsApi);
             if ($newsInputParentData['categories']) {
                 $this->storeCategories($newsInputParentData['categories']);
             }
@@ -38,7 +42,7 @@ class NewsFeederService
                 $this->storeSources($newsInputParentData['sources']);
             }
 
-            $newsInputData = $this->newsService->prepareDataForStoring($newsFromNewsApi);
+            $newsInputData = $this->{$feederClass}->prepareDataForStoring($newsFromNewsApi);
 
             return $this->storeNewsFeed($newsInputData);
         } catch (DatabaseObjectExistsException $exception) {
