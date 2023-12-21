@@ -1,0 +1,31 @@
+# Development Environment Setup
+
+* Development Setup is dockerized
+* Container managed with in repo itself
+* Docker container is managing 3 container
+  * Innoscripta Web - innoscriptanginx
+  * Innoscripta App - innoscriptaapp
+  * Innoscripta DB - innoscriptamysql
+  * Innoscripta Cache - innoscripta-redis
+
+## Build and Run Containers
+
+### Follow the commands to build and run the containers
+  * Download and install Docker (https://docs.docker.com/engine/install/)
+  * Clone the repo (https://github.com/TicketVerse/NXTG.git) 
+  
+  * ```shell
+    git clone https://github.com/TicketVerse/NXTG.git
+    git fetch origin docker-development  
+    git checkout docker-development
+    
+    cd <path of the directory cotais the source>   
+    \> docker-compose up --build  # only for very first time    
+       # once build completed terminal will show the three containers are running
+       # from next time up and run only need
+    \> docker-compose up
+    
+    ````
+  * Once containers where up, dev env will able to browse with url
+  #### (http://localhost)
+
