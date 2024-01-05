@@ -12,7 +12,7 @@
 
 ### Follow the commands to build and run the containers
   * Download and install Docker (https://docs.docker.com/engine/install/)
-  * Clone the repo (https://github.com/TicketVerse/NXTG.git) 
+  * Clone the repo (https://github.com/vinjithkannan/innoscripta-test-news-backend.git) 
   
   * ```shell
     git clone https://github.com/TicketVerse/NXTG.git
