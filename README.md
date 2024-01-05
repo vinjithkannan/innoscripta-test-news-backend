@@ -15,7 +15,7 @@
   * Clone the repo (https://github.com/vinjithkannan/innoscripta-test-news-backend.git) 
   
   * ```shell
-    git clone https://github.com/TicketVerse/NXTG.git
+    git clone https://github.com/vinjithkannan/innoscripta-test-news-backend.git
     git fetch origin docker-development  
     git checkout docker-development
     
